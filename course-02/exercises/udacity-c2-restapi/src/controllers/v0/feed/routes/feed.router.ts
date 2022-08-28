@@ -20,7 +20,7 @@ router.get('/', async (req: Request, res: Response) => {
 //Add an endpoint to GET a specific resource by Primary Key
 router.get('/:id', async (req: Request, res: Response) => {
     let { id } = req.params;
-    const item = await FeedItem.findByPk(id);
+    const item:FeedItem = await FeedItem.findByPk(id);
     if(item == null)
         return res.status(404).send({ message: 'feed not found' });
 
